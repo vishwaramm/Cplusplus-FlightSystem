@@ -35,8 +35,8 @@ Airport* Flight::getDestination() const {
 }
 
 std::string Flight::getPilot() const {
-    if (&pilot != nullptr) {
-        return (*pilot).getName();
+    if (pilot != nullptr) {
+        return pilot->getName();
     }
 
     return "No Pilot";

@@ -16,8 +16,8 @@ public:
     virtual void setName(std::string n) const {
       *name = n;
     }
-    virtual void addFlight(Flight *f) = 0;
-    virtual void removeFlight(Flight *f) = 0;
+    virtual void addFlight(Flight *f) {};
+    virtual void removeFlight(Flight *f) {};
 
     virtual ~Person() {
         delete name;
