@@ -30,10 +30,10 @@ class Flight{
         std::string getPilot() const;
         Airline* getAirline() const;
         Person* getPassenger(int index) const;
-        void setAirline(Airline a);
-        void setSource(Airport s);
-        void setDestination(Airport d);
-        void setPilot(Pilot p);
+        void setAirline(Airline &a);
+        void setSource(Airport &s);
+        void setDestination(Airport &d);
+        void setPilot(Pilot &p);
         void nullSource();
         void nullDestination();
         void nullPilot();

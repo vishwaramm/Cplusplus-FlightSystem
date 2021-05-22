@@ -15,8 +15,8 @@ class Passenger : public Person {
         Passenger();
         Passenger(std::string n);
         ~Passenger();
-        void addFlight(Flight *f) override;
-        void removeFlight(Flight *f) override;
+        void addFlight(Flight &f) override;
+        void removeFlight(Flight &sf) override;
         void cancelFights();
     friend std::ostream& operator<<(std::ostream& os, const Passenger& p1);
 };

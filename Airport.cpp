@@ -55,15 +55,22 @@ void Airport::removeDeparture(Flight f) {
 }
 void Airport::closeAirport() {
     for (int i = 0; i < arrivals.getSize(); i++) {
-        Flight currFlight = *(arrivals[i]);
-        currFlight.nullSource();
-        currFlight.nullDestination();
+        Flight *currFlight = arrivals[i];
+
+        if (currFlight->getSource() == this)
+            currFlight->nullSource();
+        
+        if (currFlight->getDestination() == this)
+            currFlight->nullDestination();
     }
 
     for (int i = 0; i < departures.getSize(); i++) {
-        Flight currFlight = *(departures[i]);
-        currFlight.nullSource();
-        currFlight.nullDestination();
+        Flight *currFlight = departures[i];
+        if (currFlight->getSource() == this)
+            currFlight->nullSource();
+        
+        if (currFlight->getDestination() == this)
+            currFlight->nullDestination();
     }
 }
 
@@ -74,28 +81,26 @@ std::ostream& operator<<(std::ostream& os, const Airport& a1)
     int arrivalSize = a1.arrivals.getSize();
     int departureSize = a1.departures.getSize();
 
-    os << "Arrivals:\n";
+    // os << " with arrivals: ";
 
-    if (arrivalSize == 0) {
-        os << "None\n";
-    } else {
-        for(int i=0; i< a1.arrivals.getSize();i++) {
-            os << i << " " << *(a1.arrivals[i]) << " ";
-        }
-        os << "\n";
+    // if (arrivalSize == 0) {
+    //     os << "None";
+    // } else {
+    //     for(int i=0; i< a1.arrivals.getSize();i++) {
+    //         os << i << " " << *(a1.arrivals[i]) << ", ";
+    //     }
+    // }
 
-    }
+    // os << " and Departures: ";
 
-    os << "Departures:\n";
+    // if (departureSize == 0) {
+    //     os << "None";
+    // } else {
+    //    for(int i=0; i< a1.departures.getSize();i++) {
+    //         os << i << " " << *(a1.departures[i]) << ", ";
+    //     }
+    // }
 
-    if (departureSize == 0) {
-        os << "None\n";
-    } else {
-       for(int i=0; i< a1.departures.getSize();i++) {
-            os << i << " " << *(a1.departures[i]) << " ";
-        }
-        os << "\n";
-    }
-
+    // os << "\n";
     return os;
 }

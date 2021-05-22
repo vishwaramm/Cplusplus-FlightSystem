@@ -18,6 +18,6 @@ Airline::~Airline() {
 
 std::ostream& operator<<(std::ostream& os, const Airline& a1)
 {
-    os << a1.getName();
+    os << a1.getName() << "\n";
     return os;
 }
